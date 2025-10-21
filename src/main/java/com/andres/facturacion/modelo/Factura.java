@@ -16,6 +16,11 @@ import java.util.Collection;
 
 @Entity
 @Getter @Setter
+@View(members = "year, numero, date;" +
+        "cliente;" +
+        "detalles;" +
+        "observaciones")
+
 public class Factura {
 
     @Id
@@ -39,6 +44,7 @@ public class Factura {
     LocalDate date;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ReferenceView("Simple")
     Cliente cliente;
 
     @ElementCollection

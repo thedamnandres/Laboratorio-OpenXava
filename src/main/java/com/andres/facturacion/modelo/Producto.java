@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.openxava.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.criteria.Fetch;
 import java.math.BigDecimal;
 
 @Entity
@@ -33,4 +34,8 @@ public class Producto {
 
     @TextArea
     String observaciones;
+
+    @ManyToOne(fetch= FetchType.LAZY)
+    @DescriptionsList
+    Fabricante fabricante;
 }
