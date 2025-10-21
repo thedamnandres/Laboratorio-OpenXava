@@ -15,6 +15,7 @@ Dentro de esta estructura se encuentran los siguientes componentes:
 Contiene las entidades principales del negocio, generadas durante los videos del laboratorio:
 - **`Cliente.java`** → Representa a los clientes de la aplicación.  
 - **`Factura.java`** → Entidad principal que gestiona las facturas creadas en el sistema.  
+- **`Fabricante.java`** → Representa al fabricante de los productos.
 - **`Detalle.java`** → Define los ítems o productos asociados a cada factura.  
 - **`Producto.java`** → Contiene la información de productos (nombre, precio, categoría).  
 - **`Categoria.java`** → Clasifica los productos por tipo o grupo.  
@@ -42,12 +43,12 @@ Contiene las clases para ejecutar la aplicación:
 ## 🧪 Ejecución del Proyecto
 1. Selecciona el file `run/facturacion.java`.  
 2. Ejecuta el proyecto con ▶️ **Run**.  
-3. Abre el navegador en: [http://localhost:8080/facturacion](http://localhost:8080/facturacion)
+3. Abre el navegador en: [http://localhost:8081/facturacion](http://localhost:8081/facturacion)
 4. Inicia sesión con `admin / admin`.
 
 ---
 
 ## 🔗 Recursos
 - [Documentación oficial de OpenXava](https://www.openxava.org/OpenXavaDoc/docs/index_es.html)
-- [Tutoriales en video (1–3)](https://www.youtube.com/playlist?list=PL60bTC1NPyZ7H3cWU2BW9gnyThLpnkgH8)
+- [Tutoriales en video (1–5)](https://www.youtube.com/playlist?list=PL60bTC1NPyZ7H3cWU2BW9gnyThLpnkgH8)
 
