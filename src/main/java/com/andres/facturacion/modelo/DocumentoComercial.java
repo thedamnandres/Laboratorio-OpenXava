@@ -14,12 +14,12 @@ import java.util.Collection;
 @Entity
 @Getter @Setter
 @View(members=
-        "year, numero, date;" +
-        "datos {" +
-            "cliente;" +
-            "detalles;" +
-            "observaciones" +
-        "}"
+    "year, numero, date;" +
+    "datos {" +
+        "cliente;" +
+        "detalles;" +
+        "observaciones" +
+    "}"
 )
 abstract public class DocumentoComercial extends Identificable {
 
@@ -33,7 +33,7 @@ abstract public class DocumentoComercial extends Identificable {
     int numero;
 
     @Required
-            @DefaultValueCalculator(CurrentLocalDateCalculator.class)
+    @DefaultValueCalculator(CurrentLocalDateCalculator.class)
     LocalDate date;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -41,7 +41,7 @@ abstract public class DocumentoComercial extends Identificable {
     Cliente cliente;
 
     @ElementCollection
-            @ListProperties("producto.numero, producto.descripcion, cantidad")
+    @ListProperties("cantidad, producto.numero, producto.descripcion")
     Collection<Detalle> detalles;
 
     @Stereotype("MEMO")

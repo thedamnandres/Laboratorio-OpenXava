@@ -11,10 +11,11 @@ import javax.persistence.ManyToOne;
 @Entity
 @Getter @Setter
 @View(extendsView = "super.DEFAULT",
-    members = "factura {factura}"
+    members = "factura { factura }"
 )
 @View(name = "SinClienteNiFactura",
-        members = "year, numero, date;" +
+    members =
+        "year, numero, date;" +
         "detalles;" +
         "observaciones"
 )
