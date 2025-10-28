@@ -15,7 +15,7 @@ public class CalculadorSiguienteNumeroParaYear implements ICalculator{
 
     @Override
     public Object calculate() throws Exception{
-        Query query = XPersistence.getManager().createQuery("select max(f.numero) from Factura f where f.year = :year");
+        Query query = XPersistence.getManager().createQuery("select max(f.numero) from DocumentoComercial f where f.year = :year");
 
         query.setParameter("year",year);
         

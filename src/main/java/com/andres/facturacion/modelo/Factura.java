@@ -1,56 +1,27 @@
 package com.andres.facturacion.modelo;
 
-import com.andres.facturacion.calculadores.CalculadorSiguienteNumeroParaYear;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.http.impl.io.ContentLengthInputStream;
-import org.hibernate.annotations.GenericGenerator;
-import org.openxava.annotations.*;
-import org.openxava.calculators.CurrentLocalDateCalculator;
-import org.openxava.calculators.CurrentUserBirthDateYearCalculator;
-import org.openxava.calculators.CurrentYearCalculator;
+import org.openxava.annotations.CollectionView;
+import org.openxava.annotations.View;
 
-import javax.persistence.*;
-import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.Collection;
 
 @Entity
 @Getter @Setter
-@View(members = "year, numero, date;" +
-        "cliente;" +
-        "detalles;" +
-        "observaciones")
+@View(extendsView = "super.DEFAULT",
+    members= "pedidos{pedidos}"
+)
+@View(name = "SinClienteNiPedidos",
+    members= "year, numero, date;" +
+             "detalles;" +
+             "observaciones"
+)
+public class Factura extends DocumentoComercial {
 
-public class Factura {
-
-    @Id
-    @GeneratedValue(generator = "system-uuid")
-    @Hidden
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    @Column(length = 32)
-    String oid;
-
-    @DefaultValueCalculator(CurrentYearCalculator.class)
-    @Column(length = 4)
-    int year;
-
-    @Column(length = 5)
-    @DefaultValueCalculator(value = CalculadorSiguienteNumeroParaYear.class,
-            properties = @PropertyValue( name = "year"))
-    int numero;
-
-    @Required
-            @DefaultValueCalculator(CurrentLocalDateCalculator.class)
-    LocalDate date;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @ReferenceView("Simple")
-    Cliente cliente;
-
-    @ElementCollection
-            @ListProperties("producto.numero, producto.descripcion, cantidad")
-    Collection<Detalle> detalles;
-
-    @Stereotype("MEMO")
-    String observaciones;
+    @OneToMany(mappedBy = "factura")
+    @CollectionView("SinClienteNiFactura")
+    Collection<Pedido> pedidos;
 }
