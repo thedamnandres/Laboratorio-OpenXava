@@ -50,5 +50,5 @@ Contiene las clases para ejecutar la aplicación:
 
 ## 🔗 Recursos
 - [Documentación oficial de OpenXava](https://www.openxava.org/OpenXavaDoc/docs/index_es.html)
-- [Tutoriales en video (1–5)](https://www.youtube.com/playlist?list=PL60bTC1NPyZ7H3cWU2BW9gnyThLpnkgH8)
+- [Tutoriales en video](https://www.youtube.com/playlist?list=PL60bTC1NPyZ7H3cWU2BW9gnyThLpnkgH8)
 
